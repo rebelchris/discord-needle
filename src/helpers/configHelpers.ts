@@ -1,6 +1,28 @@
-import * as defaultConfig from "../config.json";
-import * as overrideConfig from "../overrideConfig.json";
+import * as defaultConfig from '../config.json';
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
-export function getConfig(): typeof defaultConfig & typeof overrideConfig {
-	return Object.assign(defaultConfig, overrideConfig);
+interface IConfig {
+  discordApiToken?: string | undefined;
+  threadChannels?: [string | undefined];
+  threadArchiveDuration: string;
+  threadMessage: {
+    shouldSend: boolean;
+    shouldPin: boolean;
+    content: string;
+    embeds: string[];
+  };
+  dev: {
+    clientId: string;
+    guildId: string;
+  };
+}
+
+export function getConfig(): IConfig {
+  const config = <IConfig>defaultConfig;
+  config.discordApiToken = process.env.API_TOKEN;
+  config.threadChannels = [process.env.CHANNEL];
+  console.log(config);
+  return config;
 }

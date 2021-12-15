@@ -1,17 +1,13 @@
 {
-    "discordApiToken": "",
-    "threadChannels": [""],
-    "threadArchiveDuration": "MAX",
-    "threadMessage": {
-        "shouldSend": true,
-        "shouldPin": true,
-        "content": "Thread created from $$channelMention by $$authorMention $$relativeTimeSince with the following message:",
-        "embeds": [
-            "$$messageEmbed"
-        ]
-    },
-    "dev": {
-        "clientId": "",
-        "guildId": ""
-    }
+  "threadArchiveDuration": "MAX",
+  "threadMessage": {
+    "shouldSend": true,
+    "shouldPin": true,
+    "content": "Thread created from $$channelMention by $$authorMention $$relativeTimeSince with the following message:",
+    "embeds": ["$$messageEmbed"]
+  },
+  "dev": {
+    "clientId": "",
+    "guildId": ""
+  }
 }
